@@ -68,7 +68,7 @@ class Database implements DatabaseInterface
         return preg_replace_callback('/{([^}]*)}/', function ($matches) use ($args) {
             $condition = $matches[1];
 
-            if (str_contains($condition, '?') && in_array($this->skip(), $args)) {
+            if (in_array($this->skip(), $args, true)) {
                 return '';
             }
 
